@@ -43,6 +43,43 @@ namespace JLoger;
         SerializeErrorLogData();
     }
 
+    //методы получения журнала
+    //возвращает строкой определённое количество записей журнала ошибок
+    public string GetErrorLog(int count)
+    {
+        DeserializeErorLogData();
+        string result = "";
+        result += string.Join("\n##############\n", _errorLogs.TakeLast(count));
+        return result;
+    }
+
+    //возвращает строкой определённое количество записей журнала 
+    public string GetLog(int count)
+    {
+        DeserializeLogData();
+        string result = "";
+        result += string.Join("\n##############\n", _logs.TakeLast(count));
+        return result;
+    }
+
+    //возвращает весь журнал ошибок
+    public string GetErrorLog()
+    {
+        DeserializeErorLogData();
+        string result = "";
+        result += string.Join("\n##############\n", _errorLogs);
+        return result;
+    }
+
+    //возвращает весь журнал
+    public string GetLog()
+    {
+        DeserializeLogData();
+        string result = "";
+        result += string.Join("\n##############\n", _logs);
+        return result;
+    }
+
 
     //сериализация журнала
     public void SerializeLogData()
