@@ -33,6 +33,16 @@ namespace JLoger;
         SerializeLogData();
     }
 
+    //метод добавления записи в журнал ошибок
+    public void AddNewErrorRecord(string record)
+    {
+
+        DeserializeErorLogData();//выгружаем данные из файла
+        if (_errorLogs == null) { _errorLogs = new List<string>(); }//проверяем на null, если null, то зановоно инициализируем список
+        _errorLogs.Add($"{DateTime.Now}: {record}");
+        SerializeErrorLogData();
+    }
+
 
     //сериализация журнала
     public void SerializeLogData()
