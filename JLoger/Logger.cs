@@ -3,7 +3,7 @@ using System.Text;
 
 namespace JLoger;
 
-    public class Loger
+    public class Logger
     {
 
     //пути к файлам логов
@@ -15,15 +15,47 @@ namespace JLoger;
     private List<string> _errorLogs;
 
     //конструкторы
-    public Loger(string logFileName, string errorLogFileName)
+    public Logger(string logFileName, string errorLogFileName)
     {
         _logFileName = logFileName;
         _errorLogFileName = errorLogFileName;
     }
 
-    public Loger() : this(@"Log.json", @"ErrorLog.json") {}
+    public Logger() : this(@"Log.json", @"ErrorLog.json") {}
+
+    //метод добавления записи в журнал
+    public void AddNewRecord(string record)
+    {
+
+        DeserializeLogData();//выгружаем данные из файла
+        if (_logs == null) { _logs = new List<string>(); }//проверяем на null, если null, то зановоно инициализируем список
+        _logs.Add($"{DateTime.Now}: {record}");
+        SerializeLogData();
+    }
 
 
+    //сериализация журнала
+    public void SerializeLogData()
+    {
+        SerializeData(_logs, _logFileName);
+    }
+    //сериализация журнала ошибок
+    public void SerializeErrorLogData()
+    {
+        SerializeData(_errorLogs, _errorLogFileName);
+    }
+
+    //десериализация журнала
+    public void DeserializeLogData()
+    {
+      _logs = DeserializeData(_logFileName);
+    }
+
+    //десериализация журнала ошибок
+    public void DeserializeErorLogData()
+    {
+        _errorLogs = DeserializeData(_errorLogFileName);
+    }
 
     #region сериализаторы и десириализаторы
     // сериализация данных в формате JSON - реализация NewtonSoft
