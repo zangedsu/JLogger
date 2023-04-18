@@ -12,8 +12,8 @@ try
 catch(Exception ex) { logger.AddNewErrorRecord(ex.Message); }
 
 //получаем все записи из журналов, выводим в консоль
-Console.WriteLine("\n" + logger.GetErrorLog());
-Console.WriteLine("\n" + logger.GetLog());
+Console.WriteLine(logger.GetErrorLog());
+Console.WriteLine(logger.GetLog());
 
 logger.ClearErrorLogs();
 logger.ClearLogs();
@@ -31,8 +31,8 @@ newLogger.AddNewErrorRecord("SecondTestProblem2");
 newLogger.AddNewErrorRecord("SecondTestProblem3");
 
 //получаем заданное количество последних записей
-Console.WriteLine("\n" + newLogger.GetErrorLog(2));
-Console.WriteLine("\n" + newLogger.GetLog(2));
+Console.WriteLine(newLogger.GetErrorLog(2));
+Console.WriteLine(newLogger.GetLog(2));
 
 newLogger.ClearErrorLogs();
 newLogger.ClearLogs();
