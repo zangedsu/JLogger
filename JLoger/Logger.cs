@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
 
-namespace JLoger;
+namespace JLogger;
 
     public class Logger
     {
@@ -80,7 +80,12 @@ namespace JLoger;
         return result;
     }
 
+    //очистить журнал
+    public void ClearLogs() { _logs.Clear(); }
+    //очистить журнал ошибок
+    public void ClearErrorLogs() { _errorLogs.Clear(); }
 
+    #region сериализаторы и десириализаторы
     //сериализация журнала
     public void SerializeLogData()
     {
@@ -104,7 +109,7 @@ namespace JLoger;
         _errorLogs = DeserializeData(_errorLogFileName);
     }
 
-    #region сериализаторы и десириализаторы
+    
     // сериализация данных в формате JSON - реализация NewtonSoft
     public void SerializeData(List<string> logs, string fileName)
     {
