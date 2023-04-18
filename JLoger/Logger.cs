@@ -26,7 +26,6 @@ namespace JLogger;
     //метод добавления записи в журнал
     public void AddNewRecord(string record)
     {
-
         DeserializeLogData();//выгружаем данные из файла
         if (_logs == null) { _logs = new List<string>(); }//проверяем на null, если null, то зановоно инициализируем список
         _logs.Add($"{DateTime.Now}: {record}");
@@ -36,7 +35,6 @@ namespace JLogger;
     //метод добавления записи в журнал ошибок
     public void AddNewErrorRecord(string record)
     {
-
         DeserializeErorLogData();//выгружаем данные из файла
         if (_errorLogs == null) { _errorLogs = new List<string>(); }//проверяем на null, если null, то зановоно инициализируем список
         _errorLogs.Add($"{DateTime.Now}: {record}");
@@ -87,31 +85,31 @@ namespace JLogger;
 
     #region сериализаторы и десириализаторы
     //сериализация журнала
-    public void SerializeLogData()
+    private void SerializeLogData()
     {
         SerializeData(_logs, _logFileName);
     }
     //сериализация журнала ошибок
-    public void SerializeErrorLogData()
+    private void SerializeErrorLogData()
     {
         SerializeData(_errorLogs, _errorLogFileName);
     }
 
     //десериализация журнала
-    public void DeserializeLogData()
+    private void DeserializeLogData()
     {
       _logs = DeserializeData(_logFileName);
     }
 
     //десериализация журнала ошибок
-    public void DeserializeErorLogData()
+    private void DeserializeErorLogData()
     {
         _errorLogs = DeserializeData(_errorLogFileName);
     }
 
     
     // сериализация данных в формате JSON - реализация NewtonSoft
-    public void SerializeData(List<string> logs, string fileName)
+    private void SerializeData(List<string> logs, string fileName)
     {
         // Формирование строки JSON
         string jsonData = JsonConvert.SerializeObject(logs, Newtonsoft.Json.Formatting.Indented);
@@ -123,7 +121,7 @@ namespace JLogger;
     } // SerializeDataNs
 
     // десериализация данных из формата JSON - реализация NewtinSoft
-    public List<string> DeserializeData(string fileName)
+    private List<string> DeserializeData(string fileName)
     {
         // прочитать в строку из текстового файла
         if (!File.Exists(fileName)) { using (File.Create(fileName)) ; Thread.Sleep(1000); }
