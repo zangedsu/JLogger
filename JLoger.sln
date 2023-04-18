@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JLoger", "JLoger\JLoger.csproj", "{1125FEBB-AEF7-4740-9117-77DF60CFC1E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1125FEBB-AEF7-4740-9117-77DF60CFC1E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1125FEBB-AEF7-4740-9117-77DF60CFC1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1125FEBB-AEF7-4740-9117-77DF60CFC1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1125FEBB-AEF7-4740-9117-77DF60CFC1E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44F21030-1239-4355-856B-0B56BBE54AFB}
+	EndGlobalSection
+EndGlobal
