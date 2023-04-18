@@ -81,9 +81,9 @@ namespace JLogger;
     }
 
     //очистить журнал
-    public void ClearLogs() { _logs.Clear(); }
+    public void ClearLogs() { _logs.Clear(); SerializeLogData();  }
     //очистить журнал ошибок
-    public void ClearErrorLogs() { _errorLogs.Clear(); }
+    public void ClearErrorLogs() { _errorLogs.Clear(); SerializeErrorLogData(); }
 
     #region сериализаторы и десириализаторы
     //сериализация журнала
