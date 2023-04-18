@@ -46,7 +46,7 @@ namespace JLogger;
     public string GetErrorLog(int count)
     {
         DeserializeErorLogData();
-        string result = "";
+        string result = "##############\n";
         result += string.Join("\n##############\n", _errorLogs.TakeLast(count));
         return result;
     }
@@ -55,7 +55,7 @@ namespace JLogger;
     public string GetLog(int count)
     {
         DeserializeLogData();
-        string result = "";
+        string result = "##############\n";
         result += string.Join("\n##############\n", _logs.TakeLast(count));
         return result;
     }
@@ -64,7 +64,7 @@ namespace JLogger;
     public string GetErrorLog()
     {
         DeserializeErorLogData();
-        string result = "";
+        string result = "##############\n";
         result += string.Join("\n##############\n", _errorLogs);
         return result;
     }
@@ -73,7 +73,7 @@ namespace JLogger;
     public string GetLog()
     {
         DeserializeLogData();
-        string result = "";
+        string result = "##############\n";
         result += string.Join("\n##############\n", _logs);
         return result;
     }
